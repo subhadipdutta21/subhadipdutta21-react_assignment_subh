@@ -5,11 +5,9 @@ import commonStyles from './styles/commonStyles';
 
 
 const Step2 = ({ xlData, setXlData, setErrorOnSecondPage, bedroomCount, setBedroomCount, bathroomCount, setBathroomCount, address, setAddress, desc, setDesc }) => {
-
-  console.log(xlData)
+  
 
   useEffect(() => {
-    console.log(xlData)
     if (xlData.length > 0) {
       // filling data from xl
       setAddress(xlData[0])
@@ -20,9 +18,7 @@ const Step2 = ({ xlData, setXlData, setErrorOnSecondPage, bedroomCount, setBedro
   }, [xlData])
 
   useEffect(() => {
-    console.log(address, bedroomCount, bathroomCount)
-    if (!bedroomCount || !bathroomCount) {
-      console.log('fileds missing')
+    if (!address || !bedroomCount || !bathroomCount) {     
       setErrorOnSecondPage(true)
     } else {
       setErrorOnSecondPage(false)
@@ -31,7 +27,6 @@ const Step2 = ({ xlData, setXlData, setErrorOnSecondPage, bedroomCount, setBedro
   }, [address, bedroomCount, bathroomCount])
 
   const handleSelect = address => {
-    console.log(address)
     setAddress(address)
   };
 

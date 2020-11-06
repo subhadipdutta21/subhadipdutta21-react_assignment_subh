@@ -21,6 +21,7 @@ const StepExampleLinkClickable = _ => {
     // step3
     const [uploadedFiles, setUploadedFiles] = useState([])
     const [feat, setFeat] = useState(null)
+    const [base64urls, setBase64urls] = useState([])
 
     // reset form data
     const resetForm = _ => {
@@ -31,6 +32,7 @@ const StepExampleLinkClickable = _ => {
         setDesc('')
         setFeat('')
         setUploadedFiles('')
+        setBase64urls([])
     }
 
 
@@ -40,7 +42,7 @@ const StepExampleLinkClickable = _ => {
     }
 
     const step3ChildProps = {
-        feat, setFeat, uploadedFiles, setUploadedFiles
+        feat, setFeat, uploadedFiles, setUploadedFiles, setBase64urls, base64urls
     }
 
     const formDataProps = {
@@ -65,10 +67,14 @@ const StepExampleLinkClickable = _ => {
     }
 
     const submit = _ => {
-        console.log('submit done')
+        console.log(
+            'submitted data__',
+            'form data =>',
+            'bedcount :', bedroomCount,'bathroomCount:', bathroomCount, 'address:', address, 'description:', desc,
+            'upload Data =>', base64urls
+        )
         setActive("1")
-        resetForm()
-        console.log(uploadedFiles.length)
+        resetForm()        
     }
 
     return (
